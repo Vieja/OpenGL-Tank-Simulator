@@ -65,7 +65,7 @@ KoloL *koloLP5;
 std::vector<Model*> modele;
 std::vector<Model*> kolaLewe;
 std::vector<Model*> kolaPrawe;
-//std::vector<Cube*> prostokaty;
+std::vector<Cube*> prostokaty;
 
 float aspectRatio=1;
 float speed_x=0;
@@ -172,6 +172,62 @@ void wczytajModele(){
     koloLP3 = new KoloL(vec3(-1.35f,0.21f-0.155f,0.0f));
     koloLP4 = new KoloL(vec3(-1.35f,1.21f-0.155f,0.0f));
     koloLP5 = new KoloL(vec3(-1.35f,2.29f-0.155f,0.0f));
+
+    //prosta gora
+    for (int i=0; i<18;i++) {
+        Cube *c = new Cube(vec3(1.45f,5.05f-i*0.35f,0.08f),vec3(0.0f,0.0f,0.0f));
+        Cube *d = new Cube(vec3(-1.35f,5.05f-i*0.35f,0.08f),vec3(0.0f,0.0f,0.0f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
+    //prosta dol
+    for (int i=18; i<32;i++) {
+        Cube *c = new Cube(vec3(1.45f,4.25f-i*0.335f,-1.0f),vec3(0.0f,0.0f,0.0f));
+        Cube *d = new Cube(vec3(-1.35f,4.25f-i*0.335f,-1.0f),vec3(0.0f,0.0f,0.0f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
+    //kolo tyl
+    for (int i=32; i<36;i++) {
+        Cube *c = new Cube(vec3(1.45f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
+        Cube *d = new Cube(vec3(-1.35f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
+    //kolo przod
+    for (int i=36; i<40;i++) {
+        Cube *c = new Cube(vec3(1.45f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
+        Cube *d = new Cube(vec3(-1.35f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
+
+    //pochylenie przod
+    for (int i=40; i<44;i++) {
+        Cube *c = new Cube(vec3(1.45f,-0.69f-(40-i)*0.33f,-1.79f),vec3(0.0f,0.0f,0.0f));
+        Cube *d = new Cube(vec3(-1.35f,-0.69f-(40-i)*0.33f,-1.79f),vec3(0.0f,0.0f,0.0f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
+    //pochylenie tyl
+    for (int i=44; i<48;i++) {
+        Cube *c = new Cube(vec3(1.45f,4.65f+(44-i)*0.33f,-1.71f),vec3(0.0f,0.0f,0.0f));
+        Cube *d = new Cube(vec3(-1.35f,4.65f+(44-i)*0.33f,-1.71f),vec3(0.0f,0.0f,0.0f));
+        prostokaty.push_back(c);
+        prostokaty.push_back(d);
+        modele.push_back(c);
+        modele.push_back(d);
+    }
 
     modele.push_back(niebo);
     modele.push_back(kadlub);
@@ -351,6 +407,152 @@ void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, floa
 //    glDisableVertexAttribArray(sp->a("vertex"));  //Wyłącz przesyłanie danych do atrybutu vertex
 //    glDisableVertexAttribArray(sp->a("normal"));  //Wyłącz przesyłanie danych do atrybutu normal
 //    glDisableVertexAttribArray(sp->a("texCoord0"));  //Wyłącz przesyłanie danych do atrybutu texCoord0
+
+
+
+    for(int i=0; i < 36; i++){
+        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]-= predkoscJazdy/120;
+        else if (a_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            }
+        }
+        else if (d_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+                }
+        }
+        if(prostokaty[i]->ruchGasiennic[1] < -1.2f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= -1.2f;
+                prostokaty[i]->ruchGasiennic[1] = 5.05f+tmp;
+        }
+        if(prostokaty[i]->ruchGasiennic[1] > 5.05f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= 5.05f;
+                prostokaty[i]->ruchGasiennic[1] = -1.2f+tmp;
+        }
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+    for(int i=36; i < 64; i++){
+        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
+        else if (a_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            }
+        }
+        else if (d_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            }
+        }
+        if(prostokaty[i]->ruchGasiennic[1] < -0.45f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= -0.45f;
+                prostokaty[i]->ruchGasiennic[1] = 4.25f+tmp;
+                prostokaty[i]->ruchGasiennic[2] = -1.1f;
+        }
+        if(prostokaty[i]->ruchGasiennic[1] > 4.25f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= 4.25f;
+                prostokaty[i]->ruchGasiennic[1] = -0.45f+tmp;
+                prostokaty[i]->ruchGasiennic[2] = -1.1f;
+        }
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+    for(int i=64; i < 72; i++){
+        int iter = i-80;
+        float tmp;
+        if (iter % 2 == 0) {
+            iter = iter/2;
+            tmp = wheelL*54.778f-( iter*40.0f );
+        } else {
+            iter = iter/2 + 1;
+            tmp = wheelP*54.778f-( iter*40.0f );
+        }
+        while (tmp<-160 & tmp+160<0) tmp+=160;
+        while (tmp>0 & tmp-160>-160) tmp-=160;
+        prostokaty[i]->angleY = tmp;
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+    for(int i=72; i < 80; i++){
+        int iter = i-80;
+        float tmp;
+        if (iter % 2 == 0) {
+            iter = iter/2;
+            tmp = wheelL*54.778f-( iter*40.0f );
+        } else {
+            iter = iter/2 + 1;
+            tmp = wheelP*54.778f+( iter*40.0f );
+        }
+        while (tmp>160 & tmp-160>0) tmp-=160;
+        while (tmp<0 & tmp+160<160) tmp+=160;
+        prostokaty[i]->angleY = tmp;
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+    for(int i=80; i < 88; i++){
+        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
+        else if (a_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            }
+        } else if (d_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            }
+        }
+        if(prostokaty[i]->ruchGasiennic[1] < -0.69f) {
+            float tmp = prostokaty[i]->ruchGasiennic[1] += 0.69f;
+            prostokaty[i]->ruchGasiennic[1] = 0.3f+tmp;
+        }
+        if(prostokaty[i]->ruchGasiennic[1] > 0.3f) {
+            float tmp = prostokaty[i]->ruchGasiennic[1] -= 0.3f;
+            prostokaty[i]->ruchGasiennic[1] = -0.69f+tmp;
+        }
+        prostokaty[i]->angleXX=-18.5f;
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+    for(int i=88; i < 96; i++){
+        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
+        else if (a_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            }
+        } else if (d_pressed) {
+            if (i % 2 == 0) {
+                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
+            } else {
+                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
+            }
+        }
+        if(prostokaty[i]->ruchGasiennic[1] < 3.62f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= 3.62f;
+                prostokaty[i]->ruchGasiennic[1] = 4.65f+tmp;
+        }
+        if(prostokaty[i]->ruchGasiennic[1] > 4.65f) {
+                float tmp = prostokaty[i]->ruchGasiennic[1] -= 4.65f;
+                prostokaty[i]->ruchGasiennic[1] = 3.62f+tmp;
+        }
+        prostokaty[i]->angleXX=18.5f;
+        prostokaty[i]->drawSolid(texBloczek,sp);
+    }
+
+
 
     glfwSwapBuffers(window); //Przerzuć tylny bufor na przedni
 }

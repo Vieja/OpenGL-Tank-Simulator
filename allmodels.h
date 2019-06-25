@@ -9,6 +9,7 @@
 #include "gasiennica.h"
 #include "koloS.h"
 #include "koloL.h"
+#include "cube.h"
 
 
 #endif // ALLMODELS_H_INCLUDED

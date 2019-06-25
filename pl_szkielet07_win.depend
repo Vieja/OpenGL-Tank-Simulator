@@ -29,7 +29,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1561467762 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
+1561475291 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1001,7 +1001,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\allmodels.h
+1561475247 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\allmodels.h
 	"kadlub.h"
 	"wieza.h"
 	"lufa.h"
@@ -1010,6 +1010,7 @@
 	"gasiennica.h"
 	"koloS.h"
 	"koloL.h"
+	"cube.h"
 
 1561314769 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\camera.cpp
 	"camera.h"
@@ -1064,7 +1065,7 @@
 	"loadOBJ.h"
 	"shaderprogram.h"
 
-1561465454 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.cpp
+1561475223 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.cpp
 	<stdio.h>
 	<cstdlib>
 	"gasiennica.h"
@@ -1096,4 +1097,14 @@
 1561465519 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.h
 	"model.h"
 	"shaderprogram.h"
+
+1561476049 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\cube.cpp
+	<stdio.h>
+	<cstdlib>
+	"cube.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561475223 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\cube.h
+	"model.h"
 

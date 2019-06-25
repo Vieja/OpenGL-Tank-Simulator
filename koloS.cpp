@@ -5,7 +5,7 @@
 #include "loadOBJ.h"
 #include "shaderprogram.h"
 
-#define model "modele/koloS.obj"
+#define model "modele/koloSv2.obj"
 
 using namespace glm;
 

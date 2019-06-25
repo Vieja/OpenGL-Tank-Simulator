@@ -5,7 +5,7 @@
 #include "loadOBJ.h"
 #include "shaderprogram.h"
 
-#define model "modele/wieza.obj"
+#define model "modele/wiezav2.obj"
 
 using namespace glm;
 

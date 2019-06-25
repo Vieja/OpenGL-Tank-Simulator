@@ -1,44 +1,59 @@
 #include <stdio.h>
 #include <cstdlib>
 
-#include "gasiennica.h"
+#include "cube.h"
 #include "loadOBJ.h"
 #include "shaderprogram.h"
 
-#define model "modele/gasiennicav3.obj"
+#define model "modele/cuboid.obj"
 
 using namespace glm;
 
-Gasiennica::Gasiennica(vec3 starter) {
+Cube::Cube(vec3 starter, vec3 kolo) {
     bool res = loadOBJ(model, this->vertices, this->uvs, this->normals, this->vertexCount);
     if(!res) {
-        fprintf(stderr,"Blad - nie wczytano modelu - gasiennica");
+        fprintf(stderr,"Blad - nie wczytano modelu - cube");
         exit(1);
-    } else fprintf(stderr,"Gasiennica - wczytano\n");
-    position = starter;
+    } else fprintf(stderr,"Cube - wczytano\n");
+    position = vec3(0.0,0.0,0.0);
     start = starter;
+    ruchGasiennic = starter;
+    przesunDoZera = vec3(0.0f,-3.29f,-0.91359f);
     angleZ = 0.0f;
+    angleX = -90.0f;
+    angleXX = 0.0f;
+    angleY = 0.0f;
+    ustawKolo = kolo;
 }
 
-Gasiennica::~Gasiennica() {
+Cube::~Cube() {
     vertices.clear();
     uvs.clear();
     normals.clear();
 }
 
-void Gasiennica::drawSolid(GLuint &tex, ShaderProgram *sp) {
+void Cube::drawSolid(GLuint &tex, ShaderProgram *sp) {
     float *verts= &(this->vertices[0]);
     float *normals= &(this->normals[0]);
 	float *texCoords= &(this->uvs[0]);
 	unsigned int vertexCount= this->vertexCount;
 
-    mat4 M=glm::mat4(1.0f);
+    mat4 M=mat4(1.0f);
 	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
+	M=translate(M,start);
 	M=translate(M,position);
 
 	M=translate(M,vec3(-start[0],-start[1],-start[2]));
     M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+
+    M=translate(M,vec3(ustawKolo[0],ustawKolo[1],ustawKolo[2]));
+    M=rotate(M,this-> angleY * PI / 180,vec3(1.0f, 0.0f, 0.0f));
+    M=translate(M,vec3(-ustawKolo[0],-ustawKolo[1],-ustawKolo[2]));
+    M=rotate(M,this-> angleXX * PI / 180,vec3(1.0f, 0.0f, 0.0f));
     M=translate(M,vec3(start[0],start[1],start[2]));
+
+    M=translate(M,this->ruchGasiennic-this->start);
+    //M=translate(M,vec3(ruchGasiennic[1]-start[1],ruchGasiennic[2]-start[2],ruchGasiennic[0]-start[0]));
 
 	glUniformMatrix4fv(sp->u("M"),1,false,value_ptr(M));
 

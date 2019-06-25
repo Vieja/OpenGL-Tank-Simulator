@@ -53,6 +53,8 @@
 		<Unit filename="camera.cpp" />
 		<Unit filename="camera.h" />
 		<Unit filename="constants.h" />
+		<Unit filename="cube.cpp" />
+		<Unit filename="cube.h" />
 		<Unit filename="fragment.glsl" />
 		<Unit filename="gasiennica.cpp" />
 		<Unit filename="gasiennica.h" />
