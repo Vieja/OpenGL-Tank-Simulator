@@ -14,7 +14,7 @@ Cube::Cube(vec3 starter, vec3 kolo) {
     if(!res) {
         fprintf(stderr,"Blad - nie wczytano modelu - cube");
         exit(1);
-    } else fprintf(stderr,"Cube - wczytano\n");
+    }
     position = vec3(0.0,0.0,0.0);
     start = starter;
     ruchGasiennic = starter;
@@ -53,7 +53,6 @@ void Cube::drawSolid(GLuint &tex, ShaderProgram *sp) {
     M=translate(M,vec3(start[0],start[1],start[2]));
 
     M=translate(M,this->ruchGasiennic-this->start);
-    //M=translate(M,vec3(ruchGasiennic[1]-start[1],ruchGasiennic[2]-start[2],ruchGasiennic[0]-start[0]));
 
 	glUniformMatrix4fv(sp->u("M"),1,false,value_ptr(M));
 

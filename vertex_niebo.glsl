@@ -4,7 +4,7 @@
 uniform mat4 P;
 uniform mat4 V;
 uniform mat4 M;
-uniform vec4 lp[4]; //Współrzędne źródła światła w przestrzeni świata
+uniform vec4 lp[8]; //Współrzędne źródła światła w przestrzeni świata
 
 //Atrybuty
 in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
@@ -12,7 +12,7 @@ in vec4 normal; //wspolrzedne wektora normalnego w przestrzeni modelu
 in vec2 texCoord0; //współrzędna teksturowania
 
 //Zmienne interpolowane
-out vec4 l[4];
+out vec4 l[8];
 out vec4 n;
 out vec4 v;
 
@@ -20,7 +20,7 @@ out vec2 iTexCoord0;
 out vec2 iTexCoord1;
 
 void main(void) {
-    for (int i=0;i<4;i++) {
+    for (int i=0;i<8;i++) {
         l[i]=normalize(V*(lp[i]-M*vertex)); //Wektor "do światła" w przestrzeni oka
     }
     n=normalize(V*M*normal); //Wektor normalny w przestrzeni oka

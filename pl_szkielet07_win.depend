@@ -29,7 +29,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1561475291 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
+1561493471 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1021,7 +1021,7 @@
 
 1561409956 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\alltextures.h
 
-1561464551 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.cpp
+1561476308 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.cpp
 	<stdio.h>
 	<cstdlib>
 	"wieza.h"
@@ -1058,7 +1058,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561468199 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
+1561487784 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
 	<stdio.h>
 	<cstdlib>
 	"niebo.h"
@@ -1076,7 +1076,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561465455 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.cpp
+1561476308 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.cpp
 	<stdio.h>
 	<cstdlib>
 	"koloL.h"
@@ -1087,7 +1087,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561465455 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.cpp
+1561476308 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.cpp
 	<stdio.h>
 	<cstdlib>
 	"koloS.h"
@@ -1098,7 +1098,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561476049 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\cube.cpp
+1561479589 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\cube.cpp
 	<stdio.h>
 	<cstdlib>
 	"cube.h"

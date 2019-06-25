@@ -80,6 +80,7 @@ float phi=0;
 float radius=0;
 
 ShaderProgram *sp;
+ShaderProgram *sp_niebo;
 
 //Uchwyty na tekstury
 GLuint texZiemia;
@@ -305,6 +306,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glfwSetKeyCallback(window,keyCallback);
 
 	sp=new ShaderProgram("vertex.glsl",NULL,"fragment.glsl");
+	sp_niebo=new ShaderProgram("vertex_niebo.glsl",NULL,"fragment_niebo.glsl");
 
     texZiemia=readTexture(tekstura_ziemia);
     texKadlub=readTexture(tekstura_kadlub);
@@ -326,6 +328,7 @@ void freeOpenGLProgram(GLFWwindow* window) {
     glDeleteTextures(1,&texKolo);
     glDeleteTextures(1,&texNiebo);
     delete sp;
+    delete sp_niebo;
 }
 
 //Procedura rysująca zawartość sceny
@@ -347,17 +350,15 @@ void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, floa
     //Przeslij parametry programu cieniującego do karty graficznej
     glUniformMatrix4fv(sp->u("P"),1,false,glm::value_ptr(P));
     glUniformMatrix4fv(sp->u("V"),1,false,glm::value_ptr(V));
-    glUniform4f(sp->u("lp"),0,1000,0,1); //Współrzędne źródła światła
-    //glUniform4f(sp->u("lp2"),0,-100,50,1);
-    glUniform4f(sp->u("lp2"),0,0,100,1);
+    glUniform4f(sp->u("lp[0]"),8000,10000,0,1); //Współrzędne źródła światła
+    glUniform4f(sp->u("lp[1]"),-800,5,0,1);
+    glUniform4f(sp->u("lp[2]"),0,5,800,1);
+    glUniform4f(sp->u("lp[3]"),0,5,-800,1);
 
     glUniform1i(sp->u("textureMap0"),0);
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,texKadlub);
-
     glUniform1i(sp->u("textureMap1"),1);
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D,texZiemia);
 
     kadlub->drawSolid(texKadlub, sp);
 
@@ -368,9 +369,6 @@ void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, floa
     lufa->drawSolid(texWieza, sp);
     ziemia->drawSolid(texZiemia, sp);
 
-    niebo->angleX = ruchNieba;
-    niebo->drawSolid(texNiebo, sp);
-
     gasiennicaL->drawSolid(texGasiennica, sp);
     gasiennicaP->drawSolid(texGasiennica, sp);
 
@@ -380,34 +378,6 @@ void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, floa
         kolaLewe[i]->drawSolid(texKolo, sp);
         kolaPrawe[i]->drawSolid(texKolo, sp);
     }
-
-//    glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
-//    glVertexAttribPointer(sp->a("vertex"),4,GL_FLOAT,false,0,verts); //Wskaż tablicę z danymi dla atrybutu vertex
-//
-//    glEnableVertexAttribArray(sp->a("normal"));  //Włącz przesyłanie danych do atrybutu normal
-//    glVertexAttribPointer(sp->a("normal"),4,GL_FLOAT,false,0,normals); //Wskaż tablicę z danymi dla atrybutu normal
-//
-//    glEnableVertexAttribArray(sp->a("texCoord0"));  //Włącz przesyłanie danych do atrybutu texCoord0
-//    glVertexAttribPointer(sp->a("texCoord0"),2,GL_FLOAT,false,0,texCoords); //Wskaż tablicę z danymi dla atrybutu texCoord0
-
-//    glDrawArrays(GL_TRIANGLES,0,vertexCount); //Narysuj obiekt
-
-
-    //TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST
-
-  //  M=glm::translate(M,glm::vec3(3.0f,3.0f,3.0f));
-  //  glUniformMatrix4fv(sp->u("M"),1,false,glm::value_ptr(M));
-
-  //  glActiveTexture(GL_TEXTURE0);
-  //  glBindTexture(GL_TEXTURE_2D,texGasiennica);
-
-  //   glDrawArrays(GL_TRIANGLES,0,vertexCount);
-
-
-//    glDisableVertexAttribArray(sp->a("vertex"));  //Wyłącz przesyłanie danych do atrybutu vertex
-//    glDisableVertexAttribArray(sp->a("normal"));  //Wyłącz przesyłanie danych do atrybutu normal
-//    glDisableVertexAttribArray(sp->a("texCoord0"));  //Wyłącz przesyłanie danych do atrybutu texCoord0
-
 
 
     for(int i=0; i < 36; i++){
@@ -552,7 +522,24 @@ void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, floa
         prostokaty[i]->drawSolid(texBloczek,sp);
     }
 
+    sp_niebo->use();//Aktywacja programu cieniującego
+    //Przeslij parametry programu cieniującego do karty graficznej
+    glUniformMatrix4fv(sp_niebo->u("P"),1,false,glm::value_ptr(P));
+    glUniformMatrix4fv(sp_niebo->u("V"),1,false,glm::value_ptr(V));
+    glUniform4f(sp_niebo->u("lp[0]"),0,0,1000,1);
+    glUniform4f(sp_niebo->u("lp[1]"),0,0,-1000,1);
+    glUniform4f(sp_niebo->u("lp[2]"),1000,0,0,1);
+    glUniform4f(sp_niebo->u("lp[3]"),-1000,0,0,1);
+    glUniform4f(sp_niebo->u("lp[4]"),1000,0,1000,1);
+    glUniform4f(sp_niebo->u("lp[5]"),-1000,0,1000,1);
+    glUniform4f(sp_niebo->u("lp[6]"),1000,0,-1000,1);
+    glUniform4f(sp_niebo->u("lp[7]"),-1000,0,-1000,1);
 
+    glUniform1i(sp_niebo->u("textureMap0"),0);
+    glUniform1i(sp_niebo->u("textureMap1"),1);
+
+    niebo->angleX = ruchNieba;
+    niebo->drawSolid(texNiebo, sp_niebo);
 
     glfwSwapBuffers(window); //Przerzuć tylny bufor na przedni
 }
