@@ -1,0 +1,1099 @@
+# depslib dependency file v1.0
+1460755918 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lodepng.cpp
+	"lodepng.h"
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+
+1460755918 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
+
+1554552780 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\shaderprogram.cpp
+	"shaderprogram.h"
+
+1554552766 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\shaderprogram.h
+	"GL/glew.h"
+	"stdio.h"
+
+1469357978 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glew\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1561416926 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+	"constants.h"
+	"lodepng.h"
+	"shaderprogram.h"
+	"myCube.h"
+	"myTeapot.h"
+	"allmodels.h"
+	"alltextures.h"
+	"camera.h"
+	<iostream>
+
+1487688962 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glfw\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\glm.hpp
+	"detail/_fixes.hpp"
+	"detail/setup.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\_fixes.hpp
+	<cmath>
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+	<cstdint>
+	<type_traits>
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\platform.h
+	<cuda.h>
+	<immintrin.h>
+	<immintrin.h>
+	<popcntintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\fwd.hpp
+	"detail/qualifier.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\qualifier.hpp
+	"setup.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\vec2.hpp
+	"./ext/vector_bool2.hpp"
+	"./ext/vector_bool2_precision.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float2_precision.hpp"
+	"./ext/vector_double2.hpp"
+	"./ext/vector_double2_precision.hpp"
+	"./ext/vector_int2.hpp"
+	"./ext/vector_int2_precision.hpp"
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_uint2_precision.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool2.hpp
+	"../detail/type_vec2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec2.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\_swizzle.hpp
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\_swizzle_func.hpp
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec2.inl
+	"./compute_vector_relational.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\compute_vector_relational.hpp
+	"setup.hpp"
+	<limits>
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float2.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double2.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int2.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint2.hpp
+	"../detail/type_vec2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint2_precision.hpp
+	"../detail/type_vec2.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\vec3.hpp
+	"./ext/vector_bool3.hpp"
+	"./ext/vector_bool3_precision.hpp"
+	"./ext/vector_float3.hpp"
+	"./ext/vector_float3_precision.hpp"
+	"./ext/vector_double3.hpp"
+	"./ext/vector_double3_precision.hpp"
+	"./ext/vector_int3.hpp"
+	"./ext/vector_int3_precision.hpp"
+	"./ext/vector_uint3.hpp"
+	"./ext/vector_uint3_precision.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool3.hpp
+	"../detail/type_vec3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec3.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec3.inl
+	"compute_vector_relational.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float3.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double3.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int3.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint3.hpp
+	"../detail/type_vec3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint3_precision.hpp
+	"../detail/type_vec3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\vec4.hpp
+	"./ext/vector_bool4.hpp"
+	"./ext/vector_bool4_precision.hpp"
+	"./ext/vector_float4.hpp"
+	"./ext/vector_float4_precision.hpp"
+	"./ext/vector_double4.hpp"
+	"./ext/vector_double4_precision.hpp"
+	"./ext/vector_int4.hpp"
+	"./ext/vector_int4_precision.hpp"
+	"./ext/vector_uint4.hpp"
+	"./ext/vector_uint4_precision.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool4.hpp
+	"../detail/type_vec4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec4.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec4.inl
+	"compute_vector_relational.hpp"
+	"type_vec4_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec4_simd.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float4.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double4.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double4_precision.hpp
+	"../detail/setup.hpp"
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int4.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint4.hpp
+	"../detail/type_vec4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint4_precision.hpp
+	"../detail/type_vec4.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat2x2.hpp
+	"./ext/matrix_double2x2.hpp"
+	"./ext/matrix_double2x2_precision.hpp"
+	"./ext/matrix_float2x2.hpp"
+	"./ext/matrix_float2x2_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x2.hpp
+	"type_vec2.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x2.inl
+	"../matrix.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\matrix.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"detail/func_matrix.inl"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat2x3.hpp
+	"./ext/matrix_double2x3.hpp"
+	"./ext/matrix_double2x3_precision.hpp"
+	"./ext/matrix_float2x3.hpp"
+	"./ext/matrix_float2x3_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x3.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x3.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x3.hpp
+	"../detail/type_mat2x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x3_precision.hpp
+	"../detail/type_mat2x3.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat2x4.hpp
+	"./ext/matrix_double2x4.hpp"
+	"./ext/matrix_double2x4_precision.hpp"
+	"./ext/matrix_float2x4.hpp"
+	"./ext/matrix_float2x4_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x4.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat2x4.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x4.hpp
+	"../detail/type_mat2x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x4_precision.hpp
+	"../detail/type_mat2x4.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat3x2.hpp
+	"./ext/matrix_double3x2.hpp"
+	"./ext/matrix_double3x2_precision.hpp"
+	"./ext/matrix_float3x2.hpp"
+	"./ext/matrix_float3x2_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x2.hpp
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x2.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x2.hpp
+	"../detail/type_mat3x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x2_precision.hpp
+	"../detail/type_mat3x2.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat3x3.hpp
+	"./ext/matrix_double3x3.hpp"
+	"./ext/matrix_double3x3_precision.hpp"
+	"./ext/matrix_float3x3.hpp"
+	"./ext/matrix_float3x3_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x3.hpp
+	"type_vec3.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x3.inl
+	"../matrix.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x3.hpp
+	"../detail/type_mat3x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x3_precision.hpp
+	"../detail/type_mat3x3.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat3x4.hpp
+	"./ext/matrix_double3x4.hpp"
+	"./ext/matrix_double3x4_precision.hpp"
+	"./ext/matrix_float3x4.hpp"
+	"./ext/matrix_float3x4_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x4.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat3x4.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x4.hpp
+	"../detail/type_mat3x4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float3x4_precision.hpp
+	"../detail/type_mat3x4.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat4x2.hpp
+	"./ext/matrix_double4x2.hpp"
+	"./ext/matrix_double4x2_precision.hpp"
+	"./ext/matrix_float4x2.hpp"
+	"./ext/matrix_float4x2_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x2.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x2.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x2_precision.hpp
+	"../detail/type_mat4x2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x2.hpp
+	"../detail/type_mat4x2.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat4x3.hpp
+	"./ext/matrix_double4x3.hpp"
+	"./ext/matrix_double4x3_precision.hpp"
+	"./ext/matrix_float4x3.hpp"
+	"./ext/matrix_float4x3_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x3.hpp
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x3.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x3.hpp
+	"../detail/type_mat4x3.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x3_precision.hpp
+	"../detail/type_mat4x3.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\mat4x4.hpp
+	"./ext/matrix_double4x4.hpp"
+	"./ext/matrix_double4x4_precision.hpp"
+	"./ext/matrix_float4x4.hpp"
+	"./ext/matrix_float4x4_precision.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x4.hpp
+	"type_vec4.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x4.inl
+	"../matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_mat4x4_simd.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x4.hpp
+	"../detail/type_mat4x4.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float4x4_precision.hpp
+	"../detail/type_mat4x4.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\geometric.hpp
+	"detail/type_vec3.hpp"
+	"detail/func_geometric.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_geometric.inl
+	"../exponential.hpp"
+	"../common.hpp"
+	"func_geometric_simd.inl"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\exponential.hpp
+	"detail/type_vec1.hpp"
+	"detail/type_vec2.hpp"
+	"detail/type_vec3.hpp"
+	"detail/type_vec4.hpp"
+	<cmath>
+	"detail/func_exponential.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec1.hpp
+	"qualifier.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_vec1.inl
+	"./compute_vector_relational.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_exponential.inl
+	"../vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\vector_relational.hpp
+	"detail/qualifier.hpp"
+	"detail/setup.hpp"
+	"detail/func_vector_relational.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_vector_relational.inl
+	"func_vector_relational_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_vector_relational_simd.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\_vectorize.hpp
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\exponential.h
+	"platform.h"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\common.hpp
+	"detail/qualifier.hpp"
+	"detail/_fixes.hpp"
+	"detail/func_common.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_common.inl
+	"../vector_relational.hpp"
+	"compute_common.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\compute_common.hpp
+	"setup.hpp"
+	<limits>
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\common.h
+	"platform.h"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\geometric.h
+	"common.h"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"../geometric.hpp"
+	"../simd/matrix.h"
+	<cstring>
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\matrix.h
+	"geometric.h"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_double2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x2.hpp
+	"../detail/type_mat2x2.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_float2x2_precision.hpp
+	"../detail/type_mat2x2.hpp"
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\trigonometric.hpp
+	"detail/setup.hpp"
+	"detail/qualifier.hpp"
+	"detail/func_trigonometric.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_trigonometric_simd.inl
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\packing.hpp
+	"./ext/vector_uint2.hpp"
+	"./ext/vector_float2.hpp"
+	"./ext/vector_float4.hpp"
+	"detail/func_packing.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_packing.inl
+	"../common.hpp"
+	"type_half.hpp"
+	"func_packing_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_half.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_packing_simd.inl
+
+1551126936 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\integer.hpp
+	"detail/qualifier.hpp"
+	"common.hpp"
+	"vector_relational.hpp"
+	"detail/func_integer.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_integer.inl
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1551126944 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\simd\integer.h
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\quaternion.hpp
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_common.hpp"
+	"../ext/quaternion_float.hpp"
+	"../ext/quaternion_float_precision.hpp"
+	"../ext/quaternion_double.hpp"
+	"../ext/quaternion_double_precision.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../ext/quaternion_trigonometric.hpp"
+	"../ext/quaternion_transform.hpp"
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"quaternion.inl"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\constants.hpp
+	"../ext/scalar_constants.hpp"
+	"constants.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\scalar_constants.hpp
+	"../detail/setup.hpp"
+	"scalar_constants.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\scalar_constants.inl
+	<limits>
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\constants.inl
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../ext/matrix_projection.hpp"
+	"../ext/matrix_clip_space.hpp"
+	"../ext/matrix_transform.hpp"
+	"matrix_transform.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_projection.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_projection.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_projection.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_clip_space.hpp
+	"../ext/scalar_constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"matrix_clip_space.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_clip_space.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_transform.hpp
+	"../gtc/constants.hpp"
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+	"matrix_transform.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\matrix_transform.inl
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_relational.hpp
+	"../detail/qualifier.hpp"
+	"vector_relational.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_relational.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+	"../detail/qualifier.hpp"
+	"../detail/type_float.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_common.hpp
+	"../ext/scalar_constants.hpp"
+	"../ext/quaternion_geometric.hpp"
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	<limits>
+	"quaternion_common.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_geometric.hpp
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"../ext/vector_relational.hpp"
+	"quaternion_geometric.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_geometric.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_common.inl
+	"quaternion_common_simd.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_common_simd.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_float.hpp
+	"../detail/type_quat.hpp"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_quat.hpp
+	"../detail/type_mat3x3.hpp"
+	"../detail/type_mat4x4.hpp"
+	"../detail/type_vec3.hpp"
+	"../detail/type_vec4.hpp"
+	"../ext/vector_relational.hpp"
+	"../ext/quaternion_relational.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/matrix_transform.hpp"
+	"type_quat.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_relational.hpp
+	"../vector_relational.hpp"
+	"quaternion_relational.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_relational.inl
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_quat.inl
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"../ext/quaternion_geometric.hpp"
+	<limits>
+	"type_quat_simd.inl"
+
+1551126938 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\detail\type_quat_simd.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_float_precision.hpp
+	"../detail/type_quat.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_double.hpp
+	"../detail/type_quat.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_double_precision.hpp
+	"../detail/type_quat.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_trigonometric.hpp
+	"../trigonometric.hpp"
+	"../exponential.hpp"
+	"scalar_constants.hpp"
+	"vector_relational.hpp"
+	<limits>
+	"quaternion_trigonometric.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_trigonometric.inl
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_transform.hpp
+	"../common.hpp"
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"quaternion_transform.inl"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\quaternion_transform.inl
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	"epsilon.hpp"
+	<limits>
+	"quaternion_simd.inl"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\epsilon.hpp
+	"../detail/setup.hpp"
+	"../detail/qualifier.hpp"
+	"epsilon.inl"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\epsilon.inl
+	"../vector_relational.hpp"
+	"../common.hpp"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\quaternion_simd.inl
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\vec1.hpp
+	"../ext/vector_bool1.hpp"
+	"../ext/vector_bool1_precision.hpp"
+	"../ext/vector_float1.hpp"
+	"../ext/vector_float1_precision.hpp"
+	"../ext/vector_double1.hpp"
+	"../ext/vector_double1_precision.hpp"
+	"../ext/vector_int1.hpp"
+	"../ext/vector_int1_precision.hpp"
+	"../ext/vector_uint1.hpp"
+	"../ext/vector_uint1_precision.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool1.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_bool1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float1.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_float1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double1.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_double1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int1.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_int1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint1.hpp
+	"../detail/type_vec1.hpp"
+
+1551126940 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\ext\vector_uint1_precision.hpp
+	"../detail/type_vec1.hpp"
+
+1551126942 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\glm\gtc\type_ptr.inl
+	<cstring>
+
+1561316008 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\constants.h
+
+1554816312 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\mycube.h
+
+1554723842 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\myteapot.h
+
+1561145201 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\loadobj.cpp
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<iostream>
+	<limits>
+	<string>
+	"loadOBJ.h"
+
+1560975099 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\loadobj.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+	<vector>
+
+1560971392 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\model.cpp
+	"model.h"
+
+1561416567 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\model.h
+	<GL/glew.h>
+	<vector>
+	<glm/glm.hpp>
+	<GLFW/glfw3.h>
+	"constants.h"
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shaderprogram.h"
+
+1561394258 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kadlub.cpp
+	<stdio.h>
+	<cstdlib>
+	"kadlub.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561392207 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kadlub.h
+	"model.h"
+	"shaderprogram.h"
+
+1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\allmodels.h
+	"kadlub.h"
+	"wieza.h"
+	"lufa.h"
+	"ziemia.h"
+	"niebo.h"
+	"gasiennica.h"
+	"koloS.h"
+	"koloL.h"
+
+1561314769 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\camera.cpp
+	"camera.h"
+	<math.h>
+	"constants.h"
+
+1561314769 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\camera.h
+
+1561409956 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\alltextures.h
+
+1561417617 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.cpp
+	<stdio.h>
+	<cstdlib>
+	"wieza.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561393404 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.h
+	"model.h"
+	"shaderprogram.h"
+
+1561418589 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lufa.cpp
+	<stdio.h>
+	<cstdlib>
+	"lufa.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561418632 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lufa.h
+	"model.h"
+	"shaderprogram.h"
+
+1561396654 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\ziemia.cpp
+	<stdio.h>
+	<cstdlib>
+	"ziemia.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561396654 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\ziemia.h
+	"model.h"
+	"shaderprogram.h"
+
+1561397557 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.h
+	"model.h"
+	"shaderprogram.h"
+
+1561410256 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
+	<stdio.h>
+	<cstdlib>
+	"niebo.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561412088 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.cpp
+	<stdio.h>
+	<cstdlib>
+	"gasiennica.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561412088 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.h
+	"model.h"
+	"shaderprogram.h"
+
+1561416567 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.cpp
+	<stdio.h>
+	<cstdlib>
+	"koloL.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.h
+	"model.h"
+	"shaderprogram.h"
+
+1561416567 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.cpp
+	<stdio.h>
+	<cstdlib>
+	"koloS.h"
+	"loadOBJ.h"
+	"shaderprogram.h"
+
+1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.h
+	"model.h"
+	"shaderprogram.h"
+

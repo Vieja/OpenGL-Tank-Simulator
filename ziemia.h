@@ -2,11 +2,13 @@
 #define ZIEMIA_H
 
 #include "model.h"
+#include "shaderprogram.h"
 
 class Ziemia: public Model {
 public:
     Ziemia();
     ~Ziemia();
-    void drawSolid(GLuint &tex,glm::mat4 &V);
+    void drawSolid(GLuint &tex, ShaderProgram *sp);
 };
+
 #endif // ZIEMIA_H

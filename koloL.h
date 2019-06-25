@@ -2,13 +2,13 @@
 #define KOLOL_H
 
 #include "model.h"
+#include "shaderprogram.h"
 
 class KoloL: public Model {
 public:
     KoloL(vec3 starter);
     ~KoloL();
-    vec3 start;
-    void drawSolid(GLuint &tex,glm::mat4 &V);
+    void drawSolid(GLuint &tex, ShaderProgram *sp);
 };
 
 #endif // KOLOL_H

@@ -2,13 +2,13 @@
 #define GASIENNICA_H
 
 #include "model.h"
+#include "shaderprogram.h"
 
 class Gasiennica: public Model {
 public:
     Gasiennica(vec3 starter);
     ~Gasiennica();
-    vec3 start;
-    void drawSolid(GLuint &tex,glm::mat4 &V);
+    void drawSolid(GLuint &tex, ShaderProgram *sp);
 };
 
 #endif // GASIENNICA_H

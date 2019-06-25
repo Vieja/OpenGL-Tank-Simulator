@@ -27,3 +27,4 @@ void Camera::przesunDoModelu(float xx, float yy, float zz){
     this->y += yy;
     this->z -= zz;
 }
+

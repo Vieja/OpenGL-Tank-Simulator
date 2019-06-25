@@ -18,6 +18,7 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 */
 
 #define GLM_FORCE_RADIANS
+#define GLM_FORCE_SWIZZLE
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -26,18 +27,22 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <glm/gtc/matrix_transform.hpp>
 #include <stdlib.h>
 #include <stdio.h>
-#include <vector>
 #include "constants.h"
+#include "lodepng.h"
+#include "shaderprogram.h"
+#include "myCube.h"
+#include "myTeapot.h"
 #include "allmodels.h"
 #include "alltextures.h"
 #include "camera.h"
-#include "lodepng.h"
-#include "shaderprogram.h"
+#include <iostream>
 
 Camera *kamera;
 Kadlub *kadlub;
 Wieza *wieza;
 Lufa *lufa;
+Ziemia *ziemia;
+Niebo *niebo;
 Gasiennica *gasiennicaL;
 Gasiennica *gasiennicaP;
 KoloS *koloSLp;
@@ -57,20 +62,14 @@ KoloL *koloLP3;
 KoloL *koloLP4;
 KoloL *koloLP5;
 
-Ziemia *ziemia;
-
 std::vector<Model*> modele;
 std::vector<Model*> kolaLewe;
 std::vector<Model*> kolaPrawe;
-std::vector<Cube*> prostokaty;
+//std::vector<Cube*> prostokaty;
 
-GLuint texZiemia;
-GLuint texKadlub;
-GLuint texWieza;
-GLuint texBloczek;
-GLuint texGasiennica;
-GLuint texKolo;
-
+float aspectRatio=1;
+float speed_x=0;
+float speed_y=0;
 float predkoscJazdy=0;
 float obrotWiezy=0;
 float podniesienie=0;
@@ -79,6 +78,17 @@ float skret=0;
 float theta=0;
 float phi=0;
 float radius=0;
+
+ShaderProgram *sp;
+
+//Uchwyty na tekstury
+GLuint texZiemia;
+GLuint texKadlub;
+GLuint texWieza;
+GLuint texBloczek;
+GLuint texGasiennica;
+GLuint texKolo;
+GLuint texNiebo;
 
 bool up_pressed = false;
 bool down_pressed = false;
@@ -130,11 +140,19 @@ void keyCallback(GLFWwindow* window,int key,int scancode,int action,int mods) {
     }
 }
 
-void wczytajModele() {
+void windowResizeCallback(GLFWwindow* window,int width,int height) {
+    if (height==0) return;
+    aspectRatio=(float)width/(float)height;
+    glViewport(0,0,width,height);
+}
+
+void wczytajModele(){
     kamera = new Camera;
     kadlub = new Kadlub();
     wieza = new Wieza();
     lufa = new Lufa();
+    ziemia = new Ziemia();
+    niebo = new Niebo();
     gasiennicaL = new Gasiennica(vec3(1.45f,0.1f,0.0f));
     gasiennicaP = new Gasiennica(vec3(-1.35f,0.1f,0.0f));
 
@@ -154,64 +172,6 @@ void wczytajModele() {
     koloLP3 = new KoloL(vec3(-1.35f,0.21f-0.155f,0.0f));
     koloLP4 = new KoloL(vec3(-1.35f,1.21f-0.155f,0.0f));
     koloLP5 = new KoloL(vec3(-1.35f,2.29f-0.155f,0.0f));
-
-    ziemia = new Ziemia();
-
-    //prosta gora
-    for (int i=0; i<18;i++) {
-        Cube *c = new Cube(vec3(1.45f,5.05f-i*0.35f,0.08f),vec3(0.0f,0.0f,0.0f));
-        Cube *d = new Cube(vec3(-1.35f,5.05f-i*0.35f,0.08f),vec3(0.0f,0.0f,0.0f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
-    //prosta dol
-    for (int i=18; i<32;i++) {
-        Cube *c = new Cube(vec3(1.45f,4.25f-i*0.335f,-1.0f),vec3(0.0f,0.0f,0.0f));
-        Cube *d = new Cube(vec3(-1.35f,4.25f-i*0.335f,-1.0f),vec3(0.0f,0.0f,0.0f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
-    //kolo tyl
-    for (int i=32; i<36;i++) {
-        Cube *c = new Cube(vec3(1.45f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
-        Cube *d = new Cube(vec3(-1.35f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
-    //kolo przod
-    for (int i=36; i<40;i++) {
-        Cube *c = new Cube(vec3(1.45f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
-        Cube *d = new Cube(vec3(-1.35f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
-
-    //pochylenie przod
-    for (int i=40; i<44;i++) {
-        Cube *c = new Cube(vec3(1.45f,-0.69f-(40-i)*0.33f,-1.79f),vec3(0.0f,0.0f,0.0f));
-        Cube *d = new Cube(vec3(-1.35f,-0.69f-(40-i)*0.33f,-1.79f),vec3(0.0f,0.0f,0.0f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
-    //pochylenie tyl
-    for (int i=44; i<48;i++) {
-        Cube *c = new Cube(vec3(1.45f,4.65f+(44-i)*0.33f,-1.71f),vec3(0.0f,0.0f,0.0f));
-        Cube *d = new Cube(vec3(-1.35f,4.65f+(44-i)*0.33f,-1.71f),vec3(0.0f,0.0f,0.0f));
-        prostokaty.push_back(c);
-        prostokaty.push_back(d);
-        modele.push_back(c);
-        modele.push_back(d);
-    }
 
     modele.push_back(kadlub);
     modele.push_back(wieza);
@@ -236,7 +196,6 @@ void wczytajModele() {
     modele.push_back(koloLP4);
     modele.push_back(koloLP5);
 
-
     kolaLewe.push_back(koloSLp);
     kolaLewe.push_back(koloSLt);
     kolaLewe.push_back(koloLL1);
@@ -254,280 +213,149 @@ void wczytajModele() {
     kolaPrawe.push_back(koloLP5);
 }
 
-void cieniowanie()
-{
-    GLfloat ambientLight[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // otoczenia
-    GLfloat diffuseLight[] = { 0.5f, 0.5f, 0.5, 1.0f }; // rozproszenia
-    GLfloat specularLight[] = { 0.9f, 0.9f, 0.9f, 1.0f }; // odbicia
+//Funkcja wczytująca teksturę
+GLuint readTexture(const char* filename) {
+    GLuint tex;
+    glActiveTexture(GL_TEXTURE0);
 
+    //Wczytanie do pamięci komputera
+    std::vector<unsigned char> image;   //Alokuj wektor do wczytania obrazka
+    unsigned width, height;   //Zmienne do których wczytamy wymiary obrazka
+    //Wczytaj obrazek
+    unsigned error = lodepng::decode(image, width, height, filename);
 
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
-
-    glEnable(GL_LIGHT1);
-    glLightfv(GL_LIGHT1, GL_AMBIENT, ambientLight);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuseLight);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, specularLight);
-
-}
-
-// funckja ktora wczytuje textury do pamieci
-void wczytajObraz(GLuint &tex, std::string path)
-{
-    std::vector<unsigned char> image; //Alokuj wektor do wczytania obrazka
-    unsigned width, height; //Zmienne do których wczytamy wymiary obrazka
-    unsigned error = lodepng::decode(image, width, height, path);
-    if(error != 0)
-    {
-        fprintf(stderr,"%s\n",lodepng_error_text(error)); // wypisanie bledu jak cos nie pojdzie
-        exit(1);
-    }
-    //Import do pamiêci karty graficznej
+    //Import do pamięci karty graficznej
     glGenTextures(1,&tex); //Zainicjuj jeden uchwyt
     glBindTexture(GL_TEXTURE_2D, tex); //Uaktywnij uchwyt
-    //Wczytaj obrazek do pamiêci KG skojarzonej z uchwytem
+    //Wczytaj obrazek do pamięci KG skojarzonej z uchwytem
     glTexImage2D(GL_TEXTURE_2D, 0, 4, width, height, 0,
-                 GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*) image.data());
-    //Bilinear filtering
+    GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*) image.data());
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glEnable(GL_TEXTURE_2D);
-    glEnable(GL_NORMALIZE);
+
+    return tex;
 }
 
 //Procedura inicjująca
 void initOpenGLProgram(GLFWwindow* window) {
-    initShaders();
 	//************Tutaj umieszczaj kod, który należy wykonać raz, na początku programu************
-	glClearColor(0.2,0.6,0.8,1);
-	cieniowanie();
+	glClearColor(0,0,0,1);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_TEXTURE_2D);
+    glEnable(GL_NORMALIZE);
+	glfwSetWindowSizeCallback(window,windowResizeCallback);
+	glfwSetKeyCallback(window,keyCallback);
 
-	glEnable(GL_LIGHT0); //Włącz zerowe źródło światła
-    glEnable(GL_COLOR_MATERIAL); //Włącz śledzenie kolorów przez materiał
-    glEnable(GL_DEPTH_TEST); //Włącz używanie budora głębokości
+	sp=new ShaderProgram("vertex.glsl",NULL,"fragment.glsl");
 
-    glfwSetKeyCallback(window,keyCallback);
-
-    wczytajObraz(texZiemia,teksturaZiemi);
-    wczytajObraz(texKadlub,teksturaKadluba);
-    wczytajObraz(texWieza,teksturaWiezy);
-    wczytajObraz(texBloczek,teksturaBloczka);
-    wczytajObraz(texGasiennica,teksturaGasiennic);
-    wczytajObraz(texKolo,teksturaKola);
-
+    texZiemia=readTexture(tekstura_ziemia);
+    texKadlub=readTexture(tekstura_kadlub);
+    texWieza=readTexture(tekstura_wieza);
+    texBloczek=readTexture(tekstura_bloczek);
+    texGasiennica=readTexture(tekstura_gasiennica);
+    texKolo=readTexture(tekstura_kolo);
+    texNiebo=readTexture(tekstura_niebo);
 }
-
 
 //Zwolnienie zasobów zajętych przez program
 void freeOpenGLProgram(GLFWwindow* window) {
-    freeShaders();
     //************Tutaj umieszczaj kod, który należy wykonać po zakończeniu pętli głównej************
+    glDeleteTextures(1,&texZiemia);
+    glDeleteTextures(1,&texKadlub);
+    glDeleteTextures(1,&texWieza);
+    glDeleteTextures(1,&texBloczek);
+    glDeleteTextures(1,&texGasiennica);
+    glDeleteTextures(1,&texKolo);
+    glDeleteTextures(1,&texNiebo);
+    delete sp;
 }
 
 //Procedura rysująca zawartość sceny
-void drawScene(GLFWwindow* window,float angle, float wheelL, float wheelP, float obrotWieza, float depression, float s, float t, float r) {
+void drawScene(GLFWwindow* window, float angle_x, float angle_y, float wheelL, float wheelP, float obrotWieza, float depression, float ruchNieba, float s, float t, float r) {
 	//************Tutaj umieszczaj kod rysujący obraz******************l
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	//glm::mat4 M=glm::mat4(1.0f);
-	//M=glm::rotate(M,angle,glm::vec3(1.0f,0.0f,0.0f)); //Wylicz macierz modelu
 
     kamera->findPointOnSphere(s, t, r);
     kamera->przesunDoModelu(kadlub->position[0],kadlub->position[2],kadlub->position[1]);
 
-	glm::mat4 V=glm::lookAt(
-  //glm::vec3(kadlub->position[0],kadlub->position[2]+3.0f,kadlub->position[1]-12.0f),
-  //  glm::vec3(kadlub->position[0],kadlub->position[2]+3.0f,kadlub->position[1]-22.0f),
-  //glm::vec3(0.0f,3.0f,-12.0f),
+    glm::mat4 V=glm::lookAt(
     glm::vec3(kamera->x,kamera->y,kamera->z),
-   // glm::vec3(0.0f,0.0f,0.0f),
     glm::vec3(kadlub->position[0],-kadlub->position[2],-kadlub->position[1]),
-    //                     glm::openglvec3(0.0f,kadlub->position[1],0.0f),
-    glm::vec3(0.0f,1.0f,0.0f)); //Wylicz macierz widoku
+    glm::vec3(0.0f,1.0f,0.0f));
 
-    glm::mat4 P=glm::perspective(50.0f*PI/180.0f, 1.0f, 1.0f, 50.0f); //Wylicz macierz rzutowania
+    glm::mat4 P=glm::perspective(50.0f*PI/180.0f, aspectRatio, 0.01f, 50.0f); //Wylicz macierz rzutowania
 
-    glMatrixMode(GL_PROJECTION); //Włącz tryb modyfikacji macierzy rzutowania
-    glLoadMatrixf(value_ptr(P)); //Załaduj macierz rzutowania
-    glMatrixMode(GL_MODELVIEW);  //Włącz tryb modyfikacji macierzy model-widok
+    sp->use();//Aktywacja programu cieniującego
+    //Przeslij parametry programu cieniującego do karty graficznej
+    glUniformMatrix4fv(sp->u("P"),1,false,glm::value_ptr(P));
+    glUniformMatrix4fv(sp->u("V"),1,false,glm::value_ptr(V));
+    glUniform4f(sp->u("lp"),0,1000,0,1); //Współrzędne źródła światła
+    //glUniform4f(sp->u("lp2"),0,-100,50,1);
+    glUniform4f(sp->u("lp2"),0,0,100,1);
 
-//    spLambert->use();//Aktywacja programu cieniującego
-//    //Przeslij parametry programu cieniującego do karty graficznej
-//    glUniform4f(spLambert->u("color"),0,1,0,1);
-//    glUniformMatrix4fv(spLambert->u("P"),1,false,glm::value_ptr(P));
-//    glUniformMatrix4fv(spLambert->u("V"),1,false,glm::value_ptr(V));
-//    glUniformMatrix4fv(spLambert->u("M"),1,false,glm::value_ptr(M));
+    glUniform1i(sp->u("textureMap0"),0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,texKadlub);
+
+    glUniform1i(sp->u("textureMap1"),1);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D,texZiemia);
+
+    kadlub->drawSolid(texKadlub, sp);
 
     wieza->obrot = obrotWieza;
     lufa->obrot = obrotWieza;
     lufa->podniesienie = depression;
+    wieza->drawSolid(texWieza, sp);
+    lufa->drawSolid(texWieza, sp);
+    ziemia->drawSolid(texZiemia, sp);
+
+    niebo->angleX = ruchNieba;
+    niebo->drawSolid(texNiebo, sp);
+
+    gasiennicaL->drawSolid(texGasiennica, sp);
+    gasiennicaP->drawSolid(texGasiennica, sp);
 
     for(int i=0; i < kolaLewe.size(); i++){
         kolaLewe[i]->obrot = wheelL;
-        kolaLewe[i]->drawSolid(texKolo,V);
-    }
-
-    for(int i=0; i < kolaPrawe.size(); i++){
         kolaPrawe[i]->obrot = wheelP;
-        kolaPrawe[i]->drawSolid(texKolo,V);
+        kolaLewe[i]->drawSolid(texKolo, sp);
+        kolaPrawe[i]->drawSolid(texKolo, sp);
     }
 
-    for(int i=0; i < 36; i++){
-        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]-= predkoscJazdy/120;
-        else if (a_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            }
-        }
-        else if (d_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-                }
-        }
-        if(prostokaty[i]->ruchGasiennic[1] < -1.2f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= -1.2f;
-                prostokaty[i]->ruchGasiennic[1] = 5.05f+tmp;
-        }
-        if(prostokaty[i]->ruchGasiennic[1] > 5.05f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= 5.05f;
-                prostokaty[i]->ruchGasiennic[1] = -1.2f+tmp;
-        }
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
+//    glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
+//    glVertexAttribPointer(sp->a("vertex"),4,GL_FLOAT,false,0,verts); //Wskaż tablicę z danymi dla atrybutu vertex
+//
+//    glEnableVertexAttribArray(sp->a("normal"));  //Włącz przesyłanie danych do atrybutu normal
+//    glVertexAttribPointer(sp->a("normal"),4,GL_FLOAT,false,0,normals); //Wskaż tablicę z danymi dla atrybutu normal
+//
+//    glEnableVertexAttribArray(sp->a("texCoord0"));  //Włącz przesyłanie danych do atrybutu texCoord0
+//    glVertexAttribPointer(sp->a("texCoord0"),2,GL_FLOAT,false,0,texCoords); //Wskaż tablicę z danymi dla atrybutu texCoord0
 
-    for(int i=36; i < 64; i++){
-        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
-        else if (a_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            }
-        }
-        else if (d_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            }
-        }
-        if(prostokaty[i]->ruchGasiennic[1] < -0.45f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= -0.45f;
-                prostokaty[i]->ruchGasiennic[1] = 4.25f+tmp;
-                prostokaty[i]->ruchGasiennic[2] = -1.1f;
-        }
-        if(prostokaty[i]->ruchGasiennic[1] > 4.25f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= 4.25f;
-                prostokaty[i]->ruchGasiennic[1] = -0.45f+tmp;
-                prostokaty[i]->ruchGasiennic[2] = -1.1f;
-        }
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
+//    glDrawArrays(GL_TRIANGLES,0,vertexCount); //Narysuj obiekt
 
-    for(int i=64; i < 72; i++){
-        int iter = i-80;
-        float tmp;
-        if (iter % 2 == 0) {
-            iter = iter/2;
-            tmp = wheelL*54.778f-( iter*40.0f );
-        } else {
-            iter = iter/2 + 1;
-            tmp = wheelP*54.778f-( iter*40.0f );
-        }
-        while (tmp<-160 & tmp+160<0) tmp+=160;
-        while (tmp>0 & tmp-160>-160) tmp-=160;
-        prostokaty[i]->angleY = tmp;
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
 
-    for(int i=72; i < 80; i++){
-        int iter = i-80;
-        float tmp;
-        if (iter % 2 == 0) {
-            iter = iter/2;
-            tmp = wheelL*54.778f-( iter*40.0f );
-        } else {
-            iter = iter/2 + 1;
-            tmp = wheelP*54.778f+( iter*40.0f );
-        }
-        while (tmp>160 & tmp-160>0) tmp-=160;
-        while (tmp<0 & tmp+160<160) tmp+=160;
-        prostokaty[i]->angleY = tmp;
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
+    //TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST
 
-    for(int i=80; i < 88; i++){
-        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
-        else if (a_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            }
-        } else if (d_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            }
-        }
-        if(prostokaty[i]->ruchGasiennic[1] < -0.69f) {
-            float tmp = prostokaty[i]->ruchGasiennic[1] += 0.69f;
-            prostokaty[i]->ruchGasiennic[1] = 0.3f+tmp;
-        }
-        if(prostokaty[i]->ruchGasiennic[1] > 0.3f) {
-            float tmp = prostokaty[i]->ruchGasiennic[1] -= 0.3f;
-            prostokaty[i]->ruchGasiennic[1] = -0.69f+tmp;
-        }
-        prostokaty[i]->angleXX=-18.5f;
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
+  //  M=glm::translate(M,glm::vec3(3.0f,3.0f,3.0f));
+  //  glUniformMatrix4fv(sp->u("M"),1,false,glm::value_ptr(M));
 
-    for(int i=88; i < 96; i++){
-        if(predkoscJazdy!=0) prostokaty[i]->ruchGasiennic[1]+= predkoscJazdy/120;
-        else if (a_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            }
-        } else if (d_pressed) {
-            if (i % 2 == 0) {
-                prostokaty[i]->ruchGasiennic[1]-= (-2*PI * 1/10) /120;
-            } else {
-                prostokaty[i]->ruchGasiennic[1]+= (-2*PI * 1/10) /120;
-            }
-        }
-        if(prostokaty[i]->ruchGasiennic[1] < 3.62f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= 3.62f;
-                prostokaty[i]->ruchGasiennic[1] = 4.65f+tmp;
-        }
-        if(prostokaty[i]->ruchGasiennic[1] > 4.65f) {
-                float tmp = prostokaty[i]->ruchGasiennic[1] -= 4.65f;
-                prostokaty[i]->ruchGasiennic[1] = 3.62f+tmp;
-        }
-        prostokaty[i]->angleXX=18.5f;
-        prostokaty[i]->drawSolid(texBloczek,V);
-    }
+  //  glActiveTexture(GL_TEXTURE0);
+  //  glBindTexture(GL_TEXTURE_2D,texGasiennica);
 
-    kadlub->drawSolid(texKadlub,V);
-    wieza->drawSolid(texWieza,V);
-    lufa->drawSolid(texWieza,V);
-    gasiennicaL->drawSolid(texGasiennica,V);
-    gasiennicaP->drawSolid(texGasiennica,V);
-    ziemia->drawSolid(texZiemia,V);
+  //   glDrawArrays(GL_TRIANGLES,0,vertexCount);
+
+
+//    glDisableVertexAttribArray(sp->a("vertex"));  //Wyłącz przesyłanie danych do atrybutu vertex
+//    glDisableVertexAttribArray(sp->a("normal"));  //Wyłącz przesyłanie danych do atrybutu normal
+//    glDisableVertexAttribArray(sp->a("texCoord0"));  //Wyłącz przesyłanie danych do atrybutu texCoord0
 
     glfwSwapBuffers(window); //Przerzuć tylny bufor na przedni
 }
 
-void obliczPredkoscJazdy(float angle) {
+void obsluzKlikniecie(){
+    //oblicz predkosc jazdy
     if (w_pressed) {
             if(predkoscJazdy<2*PI) predkoscJazdy+=(2*PI * 1/120);
     }
@@ -541,10 +369,12 @@ void obliczPredkoscJazdy(float angle) {
         else predkoscJazdy = 0;
     }
 
+    //obroc wieze
     if (q_pressed) obrotWiezy=PI/8;
     else if (e_pressed) obrotWiezy=-PI/8;
     else obrotWiezy=0;
 
+    //podnies/obniz lufe
     if (f_pressed) {
         if (lufa->podniesienie<2*PI/60) podniesienie=2*PI * 1/80;
         else podniesienie = 0;
@@ -553,37 +383,8 @@ void obliczPredkoscJazdy(float angle) {
         else podniesienie = 0;
     } else podniesienie=0;
 
-    if (a_pressed) {
-        skret=-15;
-    } else if (d_pressed) {
-        skret=15;
-    }
-    else skret=0;
-
-    float ruchx;
-    float ruchy;
-
-    if (angle>=0 & angle <90) {
-        ruchx = (1-(angle/90)) * predkoscJazdy/100;
-        ruchy = (angle/90) * predkoscJazdy/100;
-    } else if (angle>=90 & angle <180) {
-        ruchx = -1* ((angle-90)/90) * predkoscJazdy/100;
-        ruchy = (1-((angle-90)/90)) * predkoscJazdy/100;
-    } else if (angle>=180 & angle <270) {
-        ruchx = -1* (1-((angle-180)/90)) * predkoscJazdy/100;
-        ruchy = -1* ((angle-180)/90) * predkoscJazdy/100;
-    } else {
-        ruchx = (angle-270)/90 * predkoscJazdy/100;
-        ruchy = -1* (1-((angle-270)/90)) * predkoscJazdy/100;
-    }
-
-    for(int i=0; i < modele.size(); i++) {
-        modele[i]->position[1]-=ruchx;
-        modele[i]->position[0]-=ruchy;
-        modele[i]->angleZ=-angle;
-    }
-
-    if (up_pressed) {
+    //oblicz przesuniecie kamery
+     if (up_pressed) {
         if(kamera->t < -2*PI/16)
             phi=+Vcamera;
         else phi=0;
@@ -597,9 +398,7 @@ void obliczPredkoscJazdy(float angle) {
     if (right_pressed) theta=-Vcamera;
     else if (left_pressed) theta=+Vcamera;
     else theta=0;
-
 }
-
 
 int main(void)
 {
@@ -613,7 +412,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	window = glfwCreateWindow(900, 900, "Symulator czołgu", NULL, NULL);
+	window = glfwCreateWindow(900, 900, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
 
 	if (!window) //Jeżeli okna nie udało się utworzyć, to zamknij program
 	{
@@ -633,22 +432,22 @@ int main(void)
 	initOpenGLProgram(window); //Operacje inicjujące
 
 	//Główna pętla
-	float angle=0;
+	float angle_x=0; //Aktualny kąt obrotu obiektu
+	float angle_y=0; //Aktualny kąt obrotu obiektu
 	float wheelL=0;
 	float wheelP=0;
 	float wieza=0;
 	float depression=0;
+	float ruchNieba=0;
 	float s = 2*PI/4;
 	float t = -2*PI/5;
 	float r = 10.0f;
-	float gasiennica=0;
 	glfwSetTime(0); //Zeruj timer
 	while (!glfwWindowShouldClose(window)) //Tak długo jak okno nie powinno zostać zamknięte
 	{
-	    obliczPredkoscJazdy(angle);
-        angle+=skret*glfwGetTime();
-        if (angle<0) angle+=360;
-        if (angle>360) angle-=360;
+	    obsluzKlikniecie();
+        angle_x+=speed_x*glfwGetTime(); //Zwiększ/zmniejsz kąt obrotu na podstawie prędkości i czasu jaki upłynał od poprzedniej klatki
+        angle_y+=speed_y*glfwGetTime(); //Zwiększ/zmniejsz kąt obrotu na podstawie prędkości i czasu jaki upłynał od poprzedniej klatki
 
         if (predkoscJazdy!=0) {
             wheelL+=predkoscJazdy*glfwGetTime();
@@ -663,12 +462,18 @@ int main(void)
 
         wieza+=obrotWiezy*glfwGetTime();
         depression+=podniesienie*glfwGetTime();
+
+        //kat obrotu sfery nieba
+        ruchNieba += 2*PI * 1/500 *glfwGetTime();
+        if (ruchNieba > 2*PI) ruchNieba-=2*PI;
+
+        //kat obrotu kamery
         s+=theta*glfwGetTime();
         t+=phi*glfwGetTime();
         r+=radius*glfwGetTime();
-        glfwSetTime(0);
 
-		drawScene(window,angle,wheelL,wheelP,wieza,depression, s, t, r); //Wykonaj procedurę rysującą
+        glfwSetTime(0); //Zeruj timer
+		drawScene(window,angle_x,angle_y,wheelL,wheelP,wieza,depression,ruchNieba,s,t,r); //Wykonaj procedurę rysującą
 		glfwPollEvents(); //Wykonaj procedury callback w zalezności od zdarzeń jakie zaszły.
 	}
 

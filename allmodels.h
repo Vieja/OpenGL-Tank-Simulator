@@ -1,32 +1,14 @@
-/*
-Niniejszy program jest wolnym oprogramowaniem; możesz go
-rozprowadzać dalej i / lub modyfikować na warunkach Powszechnej
-Licencji Publicznej GNU, wydanej przez Fundację Wolnego
-Oprogramowania - według wersji 2 tej Licencji lub(według twojego
-wyboru) którejś z późniejszych wersji.
-
-Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on
-użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej
-gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH
-ZASTOSOWAŃ.W celu uzyskania bliższych informacji sięgnij do
-Powszechnej Licencji Publicznej GNU.
-
-Z pewnością wraz z niniejszym programem otrzymałeś też egzemplarz
-Powszechnej Licencji Publicznej GNU(GNU General Public License);
-jeśli nie - napisz do Free Software Foundation, Inc., 59 Temple
-Place, Fifth Floor, Boston, MA  02110 - 1301  USA
-*/
-
-#ifndef ALL_MODELS_H
-#define ALL_MODELS_H
+#ifndef ALLMODELS_H_INCLUDED
+#define ALLMODELS_H_INCLUDED
 
 #include "kadlub.h"
 #include "wieza.h"
 #include "lufa.h"
+#include "ziemia.h"
+#include "niebo.h"
 #include "gasiennica.h"
 #include "koloS.h"
 #include "koloL.h"
-#include "ziemia.h"
-#include "cube.h"
 
-#endif
+
+#endif // ALLMODELS_H_INCLUDED
