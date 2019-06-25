@@ -29,7 +29,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1561493471 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
+1561502746 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1058,7 +1058,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561487784 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
+1561502901 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
 	<stdio.h>
 	<cstdlib>
 	"niebo.h"

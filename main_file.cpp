@@ -194,8 +194,8 @@ void wczytajModele(){
     }
     //kolo tyl
     for (int i=32; i<36;i++) {
-        Cube *c = new Cube(vec3(1.45f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
-        Cube *d = new Cube(vec3(-1.35f,5.05f,0.08f),vec3(1.45f,3.0f,-0.929f));
+        Cube *c = new Cube(vec3(1.45f,5.05f,0.08f),vec3(1.45f,3.02f,-0.929f));
+        Cube *d = new Cube(vec3(-1.35f,5.05f,0.08f),vec3(1.45f,3.02f,-0.929f));
         prostokaty.push_back(c);
         prostokaty.push_back(d);
         modele.push_back(c);
@@ -203,8 +203,8 @@ void wczytajModele(){
     }
     //kolo przod
     for (int i=36; i<40;i++) {
-        Cube *c = new Cube(vec3(1.45f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
-        Cube *d = new Cube(vec3(-1.35f,-1.2f,0.08f),vec3(1.45f,-3.2f,-0.929f));
+        Cube *c = new Cube(vec3(1.45f,-1.2f,0.08f),vec3(1.45f,-3.19f,-0.929f));
+        Cube *d = new Cube(vec3(-1.35f,-1.2f,0.08f),vec3(1.45f,-3.19f,-0.929f));
         prostokaty.push_back(c);
         prostokaty.push_back(d);
         modele.push_back(c);
@@ -634,7 +634,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	window = glfwCreateWindow(900, 900, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
+	window = glfwCreateWindow(1000, 1000, "T-34 Tank Simulator", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
 
 	if (!window) //Jeżeli okna nie udało się utworzyć, to zamknij program
 	{

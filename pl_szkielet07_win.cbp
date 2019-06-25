@@ -56,6 +56,7 @@
 		<Unit filename="cube.cpp" />
 		<Unit filename="cube.h" />
 		<Unit filename="fragment.glsl" />
+		<Unit filename="fragment_niebo.glsl" />
 		<Unit filename="gasiennica.cpp" />
 		<Unit filename="gasiennica.h" />
 		<Unit filename="kadlub.cpp" />
@@ -78,6 +79,7 @@
 		<Unit filename="shaderprogram.cpp" />
 		<Unit filename="shaderprogram.h" />
 		<Unit filename="vertex.glsl" />
+		<Unit filename="vertex_niebo.glsl" />
 		<Unit filename="wieza.cpp" />
 		<Unit filename="wieza.h" />
 		<Unit filename="ziemia.cpp" />
