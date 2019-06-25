@@ -29,7 +29,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1561416926 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
+1561467762 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\main_file.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -990,7 +990,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	"shaderprogram.h"
 
-1561394258 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kadlub.cpp
+1561464551 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kadlub.cpp
 	<stdio.h>
 	<cstdlib>
 	"kadlub.h"
@@ -1020,7 +1020,7 @@
 
 1561409956 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\alltextures.h
 
-1561417617 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.cpp
+1561464551 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\wieza.cpp
 	<stdio.h>
 	<cstdlib>
 	"wieza.h"
@@ -1031,7 +1031,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561418589 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lufa.cpp
+1561464551 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\lufa.cpp
 	<stdio.h>
 	<cstdlib>
 	"lufa.h"
@@ -1042,7 +1042,7 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561396654 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\ziemia.cpp
+1561464705 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\ziemia.cpp
 	<stdio.h>
 	<cstdlib>
 	"ziemia.h"
@@ -1057,43 +1057,43 @@
 	"model.h"
 	"shaderprogram.h"
 
-1561410256 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
+1561468199 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\niebo.cpp
 	<stdio.h>
 	<cstdlib>
 	"niebo.h"
 	"loadOBJ.h"
 	"shaderprogram.h"
 
-1561412088 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.cpp
+1561465454 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.cpp
 	<stdio.h>
 	<cstdlib>
 	"gasiennica.h"
 	"loadOBJ.h"
 	"shaderprogram.h"
 
-1561412088 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.h
+1561465519 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\gasiennica.h
 	"model.h"
 	"shaderprogram.h"
 
-1561416567 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.cpp
+1561465455 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.cpp
 	<stdio.h>
 	<cstdlib>
 	"koloL.h"
 	"loadOBJ.h"
 	"shaderprogram.h"
 
-1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.h
+1561465519 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolol.h
 	"model.h"
 	"shaderprogram.h"
 
-1561416567 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.cpp
+1561465455 source:d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.cpp
 	<stdio.h>
 	<cstdlib>
 	"koloS.h"
 	"loadOBJ.h"
 	"shaderprogram.h"
 
-1561413027 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.h
+1561465519 d:\pliki\studia\semestr iv\gkiw\pl_szkielet07_win\pl_szkielet07_win\kolos.h
 	"model.h"
 	"shaderprogram.h"
 

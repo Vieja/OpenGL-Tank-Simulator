@@ -33,7 +33,7 @@ void Niebo::drawSolid(GLuint &tex, ShaderProgram *sp) {
 	unsigned int vertexCount= this->vertexCount;
 
     glm::mat4 M=glm::mat4(1.0f);
-	M=glm::translate(M,position);
+	M=glm::translate(M,vec3(position[0],position[2],-position[1]));
 	M=glm::scale(M,scale);
 	M=rotate(M,90 * PI / 180,vec3(1.0,0.0,0.0));
 	M=rotate(M,angleX,vec3(0.0,0.0,1.0));

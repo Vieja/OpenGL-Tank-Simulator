@@ -16,6 +16,8 @@ Gasiennica::Gasiennica(vec3 starter) {
         exit(1);
     } else fprintf(stderr,"Gasiennica - wczytano\n");
     position = starter;
+    start = starter;
+    angleZ = 0.0f;
 }
 
 Gasiennica::~Gasiennica() {
@@ -30,11 +32,15 @@ void Gasiennica::drawSolid(GLuint &tex, ShaderProgram *sp) {
 	float *texCoords= &(this->uvs[0]);
 	unsigned int vertexCount= this->vertexCount;
 
-    glm::mat4 M=glm::mat4(1.0f);
-	M=glm::rotate(M,-90 * PI / 180,glm::vec3(1.0f,0.0f,0.0f));
-	M=glm::translate(M,position);
+    mat4 M=glm::mat4(1.0f);
+	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
+	M=translate(M,position);
 
-	glUniformMatrix4fv(sp->u("M"),1,false,glm::value_ptr(M));
+	M=translate(M,vec3(-start[0],-start[1],-start[2]));
+    M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+    M=translate(M,vec3(start[0],start[1],start[2]));
+
+	glUniformMatrix4fv(sp->u("M"),1,false,value_ptr(M));
 
 	glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
     glVertexAttribPointer(sp->a("vertex"),4,GL_FLOAT,false,0,verts); //Wskaż tablicę z danymi dla atrybutu vertex

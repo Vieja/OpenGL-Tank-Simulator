@@ -16,6 +16,7 @@ Kadlub::Kadlub() {
         exit(1);
     } else fprintf(stderr,"Kadlub - wczytano\n");
     position = vec3(0.0f,0.0f,0.0f);
+    angleZ = 0.0f;
 }
 
 Kadlub::~Kadlub() {
@@ -30,11 +31,13 @@ void Kadlub::drawSolid(GLuint &tex, ShaderProgram *sp) {
 	float *texCoords= &(this->uvs[0]);
 	unsigned int vertexCount= this->vertexCount;
 
-    glm::mat4 M=glm::mat4(1.0f);
-	M=glm::rotate(M,-90 * PI / 180,glm::vec3(1.0f,0.0f,0.0f));
-	M=glm::translate(M,position);
+    mat4 M=mat4(1.0f);
+	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
+	M=translate(M,position);
 
-	glUniformMatrix4fv(sp->u("M"),1,false,glm::value_ptr(M));
+	M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+
+	glUniformMatrix4fv(sp->u("M"),1,false,value_ptr(M));
 
 	glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
     glVertexAttribPointer(sp->a("vertex"),4,GL_FLOAT,false,0,verts); //Wskaż tablicę z danymi dla atrybutu vertex

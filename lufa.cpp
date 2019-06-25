@@ -37,6 +37,8 @@ void Lufa::drawSolid(GLuint &tex, ShaderProgram *sp) {
 	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
 	M=translate(M,position);
 
+	M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+
 	M=translate(M,przesunDoZera);
     M=rotate(M,this-> obrot,vec3(0.0f, 0.0f, 1.0f));
     M=translate(M,vec3(0, -1.156-0.16f, 0));

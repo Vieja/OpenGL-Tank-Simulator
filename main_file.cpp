@@ -173,6 +173,7 @@ void wczytajModele(){
     koloLP4 = new KoloL(vec3(-1.35f,1.21f-0.155f,0.0f));
     koloLP5 = new KoloL(vec3(-1.35f,2.29f-0.155f,0.0f));
 
+    modele.push_back(niebo);
     modele.push_back(kadlub);
     modele.push_back(wieza);
     modele.push_back(lufa);
@@ -272,7 +273,7 @@ void freeOpenGLProgram(GLFWwindow* window) {
 }
 
 //Procedura rysująca zawartość sceny
-void drawScene(GLFWwindow* window, float angle_x, float angle_y, float wheelL, float wheelP, float obrotWieza, float depression, float ruchNieba, float s, float t, float r) {
+void drawScene(GLFWwindow* window, float angle, float wheelL, float wheelP, float obrotWieza, float depression, float ruchNieba, float s, float t, float r) {
 	//************Tutaj umieszczaj kod rysujący obraz******************l
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -354,7 +355,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, float wheelL, f
     glfwSwapBuffers(window); //Przerzuć tylny bufor na przedni
 }
 
-void obsluzKlikniecie(){
+void obsluzKlikniecie(float angle){
     //oblicz predkosc jazdy
     if (w_pressed) {
             if(predkoscJazdy<2*PI) predkoscJazdy+=(2*PI * 1/120);
@@ -382,6 +383,38 @@ void obsluzKlikniecie(){
         if (lufa->podniesienie>-2*PI/60) podniesienie=-2*PI * 1/80;
         else podniesienie = 0;
     } else podniesienie=0;
+
+    //obrot czolgu
+    if (a_pressed) {
+        skret=-15;
+    } else if (d_pressed) {
+        skret=15;
+    }
+    else skret=0;
+
+    //ustal przesuniecie czolgu na osiach x i y
+    float ruchx;
+    float ruchy;
+
+    if (angle>=0 & angle <90) {
+        ruchx = (1-(angle/90)) * predkoscJazdy/100;
+        ruchy = (angle/90) * predkoscJazdy/100;
+    } else if (angle>=90 & angle <180) {
+        ruchx = -1* ((angle-90)/90) * predkoscJazdy/100;
+        ruchy = (1-((angle-90)/90)) * predkoscJazdy/100;
+    } else if (angle>=180 & angle <270) {
+        ruchx = -1* (1-((angle-180)/90)) * predkoscJazdy/100;
+        ruchy = -1* ((angle-180)/90) * predkoscJazdy/100;
+    } else {
+        ruchx = (angle-270)/90 * predkoscJazdy/100;
+        ruchy = -1* (1-((angle-270)/90)) * predkoscJazdy/100;
+    }
+
+    for(int i=0; i < modele.size(); i++) {
+        modele[i]->position[1]-=ruchx;
+        modele[i]->position[0]-=ruchy;
+        modele[i]->angleZ=-angle;
+    }
 
     //oblicz przesuniecie kamery
      if (up_pressed) {
@@ -432,8 +465,7 @@ int main(void)
 	initOpenGLProgram(window); //Operacje inicjujące
 
 	//Główna pętla
-	float angle_x=0; //Aktualny kąt obrotu obiektu
-	float angle_y=0; //Aktualny kąt obrotu obiektu
+	float angle=0;
 	float wheelL=0;
 	float wheelP=0;
 	float wieza=0;
@@ -445,9 +477,10 @@ int main(void)
 	glfwSetTime(0); //Zeruj timer
 	while (!glfwWindowShouldClose(window)) //Tak długo jak okno nie powinno zostać zamknięte
 	{
-	    obsluzKlikniecie();
-        angle_x+=speed_x*glfwGetTime(); //Zwiększ/zmniejsz kąt obrotu na podstawie prędkości i czasu jaki upłynał od poprzedniej klatki
-        angle_y+=speed_y*glfwGetTime(); //Zwiększ/zmniejsz kąt obrotu na podstawie prędkości i czasu jaki upłynał od poprzedniej klatki
+	    obsluzKlikniecie(angle);
+        angle+=skret*glfwGetTime();
+        if (angle<0) angle+=360;
+        if (angle>360) angle-=360;
 
         if (predkoscJazdy!=0) {
             wheelL+=predkoscJazdy*glfwGetTime();
@@ -473,7 +506,7 @@ int main(void)
         r+=radius*glfwGetTime();
 
         glfwSetTime(0); //Zeruj timer
-		drawScene(window,angle_x,angle_y,wheelL,wheelP,wieza,depression,ruchNieba,s,t,r); //Wykonaj procedurę rysującą
+		drawScene(window,angle,wheelL,wheelP,wieza,depression,ruchNieba,s,t,r); //Wykonaj procedurę rysującą
 		glfwPollEvents(); //Wykonaj procedury callback w zalezności od zdarzeń jakie zaszły.
 	}
 

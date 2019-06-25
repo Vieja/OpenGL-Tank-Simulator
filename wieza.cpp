@@ -18,6 +18,7 @@ Wieza::Wieza() {
     position = vec3(0.0f,-0.05f,-0.42f);
     przesunDoZera = vec3(-0.00106f,-0.98469f+0.05f,0.67054f+0.42f);
     obrot = 0.0f;
+    angleZ = 0.0f;
 }
 
 Wieza::~Wieza() {
@@ -36,11 +37,13 @@ void Wieza::drawSolid(GLuint &tex, ShaderProgram *sp) {
 	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
 	M=translate(M,position);
 
+	M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+
 	M=translate(M,przesunDoZera);
     M=rotate(M,this-> obrot,vec3(0.0f, 0.0f, 1.0f));
     M=translate(M,-przesunDoZera);
 
-	glUniformMatrix4fv(sp->u("M"),1,false,glm::value_ptr(M));
+	glUniformMatrix4fv(sp->u("M"),1,false,value_ptr(M));
 
 	glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
     glVertexAttribPointer(sp->a("vertex"),4,GL_FLOAT,false,0,verts); //Wskaż tablicę z danymi dla atrybutu vertex

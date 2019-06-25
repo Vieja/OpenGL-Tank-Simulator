@@ -9,6 +9,7 @@ public:
     KoloS(vec3 starter);
     ~KoloS();
     void drawSolid(GLuint &tex, ShaderProgram *sp);
+    vec3 start;
 };
 
 #endif // KOLOS_H

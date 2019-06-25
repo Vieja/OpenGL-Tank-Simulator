@@ -9,6 +9,7 @@ public:
     Gasiennica(vec3 starter);
     ~Gasiennica();
     void drawSolid(GLuint &tex, ShaderProgram *sp);
+    vec3 start;
 };
 
 #endif // GASIENNICA_H

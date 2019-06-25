@@ -16,7 +16,9 @@ KoloS::KoloS(vec3 starter) {
         exit(1);
     } else fprintf(stderr,"KoloS - wczytano\n");
     position = starter;
+    start = starter;
     przesunDoZera = vec3(0.0f,-3.29f,-0.91359f);
+    angleZ = 0.0f;
 }
 
 KoloS::~KoloS() {
@@ -34,6 +36,10 @@ void KoloS::drawSolid(GLuint &tex, ShaderProgram *sp) {
     mat4 M=mat4(1.0f);
 	M=rotate(M,-90 * PI / 180,vec3(1.0f,0.0f,0.0f));
 	M=translate(M,position);
+
+	M=translate(M,vec3(-start[0],-start[1],-start[2]));
+    M=rotate(M,this-> angleZ * PI / 180,vec3(0.0f, 0.0f, 1.0f));
+    M=translate(M,vec3(start[0],start[1],start[2]));
 
     M=translate(M,przesunDoZera);
     M=rotate(M,this-> obrot,vec3(1.0f, 0.0f, 0.0f));
